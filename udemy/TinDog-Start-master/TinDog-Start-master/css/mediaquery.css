@@ -1,0 +1,10 @@
+@media print{
+    h1{
+        color:  gold;
+    }
+}
+@media (max-width:900px){
+    h1{
+        color:  gold;
+    }
+}

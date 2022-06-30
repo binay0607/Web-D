@@ -1,0 +1,44 @@
+
+body{
+    background-color: #FFE6E6;
+    text-align: center;
+    font-family: 'pattaya', sans-serif;
+}
+
+.container{
+    width: 600px;
+    background-color: #DAEAF1;
+    padding: 70px 40px;
+    position: absolute;
+    
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    box-shadow: 0 20px 25px rgba(226,156,63,0.25);
+    border-radius: 8px;
+    font-size: 18px;
+}
+.input_box{
+    width: 51px;
+    margin-left: 95px;
+    margin-bottom: 42px;
+}
+label{
+    font-size: 30px;
+    font-weight: 600;
+    border: 2px dashed #e9e5e5;
+    border-radius: 3px;
+}
+input{
+    width: 400px;
+    height: 50px;
+    border-radius: 3px;
+    border: 2px solid #D2D2D2;
+    outline: none;
+    margin-top: 8px;
+    padding: 0 10px;
+}
+input:focus{
+    border: 2px dashed white;
+    background-color: white;
+}

@@ -1,0 +1,14 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "this is intro",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "binay",
+  "license": "ISC",
+  "dependencies": {
+    "superheroes": "^3.0.0"
+  }
+}

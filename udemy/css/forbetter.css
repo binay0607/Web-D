@@ -1,0 +1,106 @@
+/* relative positioning */
+/* .first{
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    background: red;
+    position: relative;
+    
+    left: 208px;
+}
+.second{
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    background: blue;
+    position: relative;
+    
+    right: 104px;
+}
+.third{
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    background: yellow;
+    position: relative;
+ 
+    right: 104px;
+} */
+/* absolute positioning */
+
+/* .first{
+    
+    height: 100px;
+    width: 100px;
+    background: red;
+    position: absolute;
+    top: 200px;
+    left: 200px;
+    
+   
+}
+.second{
+    
+    height: 100px;
+    width: 100px;
+    background: blue;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    
+  
+}
+.third{
+
+    height: 100px;
+    width: 100px;
+    background: yellow;
+    position: absolute;
+    left: 0;
+    top: 0;
+    
+} */
+/* making our own container  */
+.container{
+    position: relative;
+    height: 300px;
+    width: 300px;
+    background: grey;
+    bottom: 9px;
+    right: 10px;
+}
+.first{
+    
+    height: 100px;
+    width: 100px;
+    background: red;
+    position: absolute;
+    right: 0;
+  
+    
+   
+}
+.second{
+    
+    height: 100px;
+    width: 100px;
+    background: blue;
+    position: fixed;
+    top: 0;
+    left: 100px;
+
+    
+  
+}
+.third{
+
+    height: 100px;
+    width: 100px;
+    background: yellow;
+    position:fixed;
+    top: 0;
+    left: 0;
+  
+    
+}
+

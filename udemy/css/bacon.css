@@ -1,0 +1,29 @@
+h1{
+    color: red;
+    size: 100px;
+}
+img:hover{
+    background-color: gold;
+}
+/************* class selector **************/
+.bacon{
+    background-color: green;
+}
+.circular{
+    
+    border-radius: 50%;
+}
+.broccoli{
+    background-color: red;
+    /* border-radius: 100%; */
+}
+.click{
+    height: 100px;
+    width: 100px;
+    margin: -10px 0px 0px -180px;
+}
+
+/************* id selector **************/
+#heading{
+    color: blue;
+}
