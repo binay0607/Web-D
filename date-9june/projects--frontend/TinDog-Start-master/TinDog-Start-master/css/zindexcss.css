@@ -1,0 +1,23 @@
+div{
+    height: 100px;
+    width: 100px;
+    border: 1px solid;
+    position: absolute;
+}
+/* we need to position an element to use z-index */
+.red{
+    background-color: red;
+    z-index: 1; /*will make it on top*/
+    
+}
+.yellow{
+    background-color: yellow;
+    top: 20px;
+    left: 20px;
+}
+.blue{
+    background-color: blue;
+    top: 40px;
+    left: 40px;
+    z-index: -1;
+}
