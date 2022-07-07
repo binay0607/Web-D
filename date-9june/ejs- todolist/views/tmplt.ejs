@@ -12,11 +12,13 @@
             </div>
         <% } %>
         
-    
-        <form  class="item" action="/" method="post">
+        
+        <form id="formId" class="item" action="/" method="post">
             <input type="text" name="newItem" placeholder="Add New Item" autocomplete="off">
             <button type="submit" name="list" value=<%= title %>>+</button>
         </form>
     </div>
+    <script src="script.js"></script>
+
     
 <%- include("footer"); -%>

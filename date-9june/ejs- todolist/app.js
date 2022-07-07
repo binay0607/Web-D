@@ -35,13 +35,21 @@ app.get("/about",function(req,res){
 
 app.post("/", function(req,res){
     let item= req.body.newItem;
-    if(req.body.list== "My"){
-        goals.push(item);
-        res.redirect("/goals");
-    }else{
-        items.push(item);
+    
+    console.log(item.length);
+    if(item.length==0){
+    
         res.redirect("/");
+    }else{
+        if(req.body.list== "My"){
+            goals.push(item);
+            res.redirect("/goals");
+        }else{
+            items.push(item);
+            res.redirect("/");
+        }
     }
+    
     
     
     

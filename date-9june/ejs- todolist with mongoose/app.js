@@ -49,8 +49,14 @@ var itemArr= [item1,item2];
 //     }
 // });
 
+//schema for custom routes
+const listSchema= {
+    name : String,
+    items : [itemSchema]
+}
 
-
+const List= mongoose.model("list", listSchema);
+//go to app.get for custom route
 
 app.get("/", function(req,res){
     let day= date.getDate();
@@ -66,7 +72,7 @@ app.get("/", function(req,res){
         }else{
             //rendering with database data
             res.render("tmplt",{
-                title: day,
+                title: "Today",
                 items: foundItems   //tap into founditems.name in tmplt.ejs file
             });
             
@@ -79,39 +85,81 @@ app.get("/", function(req,res){
 //deleting items on list--> also check tmplt for more info
 app.post("/delete",function(req,res){
     const itemID= req.body.checkbox;
-    Item.deleteOne({_id:itemID},function(err){
-        if(err){
-            console.log(err);
-        }else{
-            console.log(" Task Deleted Successfully");
+    const listName= req.body.listName;  //for custom routes list
+
+    if(listName==="Today"){
+        Item.deleteOne({_id:itemID},function(err){
+            if(err){
+                console.log(err);
+            }else{
+                console.log(" Task Deleted Successfully");
+            }
+        });
+        res.redirect("/");
+    }else{
+        List.findOneAndUpdate({name: listName},{$pull: {items :{ _id: itemID}}}, function(err, foundList){
+            if(!err){
+                res.redirect("/"+listName);
+            }
+        });
+    }
+    
+
+});
+
+//making different routs
+app.get("/:topic", function(req,res){
+
+    const customListName= req.params.topic;
+    List.findOne({name:customListName}, function(err,foundlist){
+        if(!err){
+            if(!foundlist){
+                const list= new List({
+                    name : customListName,
+                    items : itemArr
+                });
+                list.save();
+                res.redirect("/"+ customListName);
+                
+            }else{
+                res.render("tmplt", {title: foundlist.name, items: foundlist.items });
+            }
         }
+
     });
-    res.redirect("/");
-
+    
 });
 
 
+// app.get("/goals", function(req,res){
+//     res.render("tmplt",{
+//         title: "My Goals",
+//         items: goals
+//     });
+// });
 
-app.get("/goals", function(req,res){
-    res.render("tmplt",{
-        title: "My Goals",
-        items: goals
-    });
-});
-
-app.get("/about",function(req,res){
- res.render("about");
-});
+// app.get("/about",function(req,res){
+//  res.render("about");
+// });
 
 app.post("/", function(req,res){
     const item= req.body.newItem;
-
+    const listName= req.body.list;  //now for custom routes
     const nItem =new Item({
         name: item
     });
 
-    nItem.save();
-    res.redirect("/");
+    if(listName==="Today"){
+        nItem.save();
+        res.redirect("/");
+    }else{
+        List.findOne({name : listName},function(err, foundList){
+            foundList.items.push(nItem);
+            foundList.save();
+            res.redirect("/"+listName);
+        });
+    }
+    
     
     
     
